@@ -11,18 +11,18 @@ def get_owner_pure_number(apps, schema_editor):
     for flat in flats:
         owner_pure_number = phonenumbers.parse(flat.owners_phonenumber, "RU")
         if phonenumbers.is_valid_number(owner_pure_number):
-            flat.owner_pure_number = owner_pure_number
+            flat.owners_pure_number = owner_pure_number
             flat.save()
 
 
 def get_owner_pure_number_backward(apps, schema_editor):
     Flat = apps.get_model("property", "Flat")
-    Flat.objects.all().update(owner_pure_number=None)
+    Flat.objects.all().update(owners_pure_number=None)
 
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('property', '0005_auto_20230621_0225'),
+        ('property', '0006_flat_owners_pure_number'),
     ]
 
     operations = [
