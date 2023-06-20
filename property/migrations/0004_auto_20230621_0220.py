@@ -16,7 +16,7 @@ def fill_new_building_fields_backward(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('property', '0003_flat_new_building'),
+        ("property", "0003_flat_new_building"),
     ]
 
     operations = [
