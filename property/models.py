@@ -13,6 +13,8 @@ class Flat(models.Model):
     description = models.TextField('Текст объявления', blank=True)
     price = models.IntegerField('Цена квартиры', db_index=True)
 
+    new_building = models.BooleanField("Новостройка", null=True)
+
     town = models.CharField(
         'Город, где находится квартира',
         max_length=50,
