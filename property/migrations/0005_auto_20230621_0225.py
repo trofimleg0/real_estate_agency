@@ -6,25 +6,56 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('property', '0004_auto_20230621_0220'),
+        ("property", "0004_auto_20230621_0220"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='flat',
-            name='liked_by',
-            field=models.ManyToManyField(blank=True, related_name='liked_flats', to=settings.AUTH_USER_MODEL, verbose_name='Кто лайкнул'),
+            model_name="flat",
+            name="liked_by",
+            field=models.ManyToManyField(
+                blank=True,
+                related_name="liked_flats",
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="Кто лайкнул",
+            ),
         ),
         migrations.CreateModel(
-            name='Complaint',
+            name="Complaint",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField(blank=True, verbose_name='Текст жалобы')),
-                ('flat', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='property.flat', verbose_name='Квартира, на которую пожаловались')),
-                ('user', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Кто жаловался')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "text",
+                    models.TextField(blank=True, verbose_name="Текст жалобы"),
+                ),
+                (
+                    "flat",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="property.flat",
+                        verbose_name="Квартира, на которую пожаловались",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Кто жаловался",
+                    ),
+                ),
             ],
         ),
     ]

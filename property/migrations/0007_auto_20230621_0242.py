@@ -22,7 +22,7 @@ def get_owner_pure_number_backward(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('property', '0006_flat_owners_pure_number'),
+        ("property", "0006_flat_owners_pure_number"),
     ]
 
     operations = [

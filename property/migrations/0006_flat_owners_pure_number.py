@@ -5,15 +5,20 @@ import phonenumber_field.modelfields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('property', '0005_auto_20230621_0225'),
+        ("property", "0005_auto_20230621_0225"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='flat',
-            name='owners_pure_number',
-            field=phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=20, null=True, region=None, verbose_name='Стандартизированный номер владельца'),
+            model_name="flat",
+            name="owners_pure_number",
+            field=phonenumber_field.modelfields.PhoneNumberField(
+                blank=True,
+                max_length=20,
+                null=True,
+                region=None,
+                verbose_name="Стандартизированный номер владельца",
+            ),
         ),
     ]

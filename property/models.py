@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class Flat(models.Model):
     owner = models.CharField("ФИО владельца", max_length=200)
     owners_phonenumber = models.CharField("Номер владельца", max_length=20)
@@ -76,3 +77,23 @@ class Complaint(models.Model):
         verbose_name="Квартира, на которую пожаловались",
     )
     text = models.TextField(blank=True, verbose_name="Текст жалобы")
+
+
+class Owner(models.Model):
+    fullname = models.CharField("ФИО владельца", max_length=200)
+    phonenumber = models.CharField("Номер владельца", max_length=20)
+    pure_number = PhoneNumberField(
+        "Стандартизированный номер владельца",
+        blank=True,
+        null=True,
+        max_length=20,
+    )
+    flats = models.ManyToManyField(
+        Flat,
+        blank=True,
+        verbose_name="Квартиры в собственности",
+        related_name="owners",
+    )
+
+    def __str__(self):
+        return self.fullname
