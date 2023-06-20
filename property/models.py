@@ -14,6 +14,12 @@ class Flat(models.Model):
     price = models.IntegerField("Цена квартиры", db_index=True)
 
     new_building = models.BooleanField("Новостройка", null=True)
+    liked_by = models.ManyToManyField(
+        User,
+        blank=True,
+        verbose_name="Кто лайкнул",
+        related_name="liked_flats",
+    )
 
     town = models.CharField(
         "Город, где находится квартира", max_length=50, db_index=True
