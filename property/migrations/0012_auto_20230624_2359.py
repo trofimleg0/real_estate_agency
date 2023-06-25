@@ -4,22 +4,21 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('property', '0011_auto_20230624_2351'),
+        ("property", "0011_auto_20230624_2351"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='flat',
-            name='owner',
+            model_name="flat",
+            name="owner",
         ),
         migrations.RemoveField(
-            model_name='flat',
-            name='owners_phonenumber',
+            model_name="flat",
+            name="owners_phonenumber",
         ),
         migrations.RemoveField(
-            model_name='flat',
-            name='owners_pure_number',
+            model_name="flat",
+            name="owners_pure_number",
         ),
     ]
